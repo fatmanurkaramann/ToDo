@@ -134,19 +134,20 @@ namespace ToDo
             Console.WriteLine("Enter the ID of the card to delete:");
             string title = Console.ReadLine();
 
-            Card cardToDelete = null;
-            foreach (var card in defaultCard.cardList)
-            {
-                if (card.Title == title)
-                {
-                    cardToDelete = card;
-                    break;
-                }
-            }
+            Card cardRemove = defaultCard.cardList.Find(p=>p.Title==title);
+            //Card cardToDelete = null;
+            //foreach (var card in defaultCard.cardList)
+            //{
+            //    if (card.Title == title)
+            //    {
+            //        cardToDelete = card;
+            //        break;
+            //    }
+            //}
 
-            if (cardToDelete != null)
+            if (cardRemove != null)
             {
-                defaultCard.cardList.Remove(cardToDelete);
+                defaultCard.cardList.Remove(cardRemove);
                 Console.WriteLine("Card deleted successfully.");
             }
             else
