@@ -8,12 +8,14 @@ public class Program
         while (true)
         {
             Console.WriteLine("Enter your choice:");
-            Console.WriteLine("1. Add todo");
-            Console.WriteLine("2. Show person");
+            Console.WriteLine("1. Add Card");
+            Console.WriteLine("2. Show Person");
             Console.WriteLine("3. List Cards");
-            Console.WriteLine("4. Update Cards");
-            Console.WriteLine("5. Delete Cards");
-            Console.WriteLine("6. Exit");
+            Console.WriteLine("4. Update Card");
+            Console.WriteLine("5. Delete Card");
+            Console.WriteLine("6. Move Card");
+            Console.WriteLine("7. Exit");
+
             int choice = Convert.ToInt32(Console.ReadLine());
 
             switch (choice)
@@ -25,9 +27,18 @@ public class Program
                     toDomanager.showAllPerson();
                     break;
                 case 3:
-                    toDomanager.ListCards();
+                    toDomanager.ListCardsByLine();
+                    break;
+                case 4:
+                    toDomanager.UpdateCard();
+                    break;
+                case 5:
+                    toDomanager.DeleteCard();
                     break;
                 case 6:
+                    toDomanager.MoveToNextLine();
+                    break;
+                case 7:
                     return;
                 default:
                     Console.WriteLine("Invalid choice.");

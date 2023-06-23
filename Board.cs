@@ -14,5 +14,10 @@ namespace ToDo
             INPROGRESS,
             DONE
         }
+
+        public static IEnumerable<BoardLine> GetBoardLines()
+        {
+            return Enum.GetValues(typeof(BoardLine)).Cast<BoardLine>();
+        }
     }
 }
