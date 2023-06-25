@@ -97,6 +97,7 @@ namespace ToDo
                 {
                     if (card.Line == line)
                     {
+                        
                         Console.WriteLine("Title: " + card.Title);
                         Console.WriteLine("Content: " + card.Content);
                         Console.WriteLine("Assigned Person: " + card.AssignedPerson.Name);
@@ -123,11 +124,40 @@ namespace ToDo
 
                 defaultCard.cardList[index].Title = newTitle;
                 Console.WriteLine("Title updated.");
+
+                Console.WriteLine("Enter new line:");
+                string newLine = Console.ReadLine();
+                if (newLine.ToUpper() == "DONE")
+                {
+                    defaultCard.cardList[index].Line = Board.BoardLine.DONE;
+                }
+
             }
         }
         public void MoveToNextLine()
         {
-        
+            Console.WriteLine("Enter the index of the card to update:");
+            int i = Convert.ToInt32(Console.ReadLine());
+
+
+            for ( i = 0; i < defaultCard.cardList.Count; i++)
+            {
+                Console.WriteLine("Enter new line:");
+                string newLine = Console.ReadLine();
+                if (newLine.ToUpper() == "DONE")
+                {
+                    defaultCard.cardList[i].Line = Board.BoardLine.DONE;
+                }
+                else if (newLine.ToUpper() == "INPROGRESS")
+                {
+                    defaultCard.cardList[i].Line = Board.BoardLine.INPROGRESS;
+                }
+                else if(newLine.ToUpper() == "TODO")
+                {
+                    defaultCard.cardList[i].Line = Board.BoardLine.TODO;
+                }
+            }
+
         }
         public void DeleteCard()
         {
