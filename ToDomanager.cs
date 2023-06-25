@@ -125,37 +125,34 @@ namespace ToDo
                 defaultCard.cardList[index].Title = newTitle;
                 Console.WriteLine("Title updated.");
 
-                Console.WriteLine("Enter new line:");
-                string newLine = Console.ReadLine();
-                if (newLine.ToUpper() == "DONE")
-                {
-                    defaultCard.cardList[index].Line = Board.BoardLine.DONE;
-                }
-
             }
         }
         public void MoveToNextLine()
         {
             Console.WriteLine("Enter the index of the card to update:");
-            int i = Convert.ToInt32(Console.ReadLine());
+            int index = Convert.ToInt32(Console.ReadLine());
 
-
-            for ( i = 0; i < defaultCard.cardList.Count; i++)
+            if (index >= 0 && index < defaultCard.cardList.Count)
             {
                 Console.WriteLine("Enter new line:");
                 string newLine = Console.ReadLine();
+
                 if (newLine.ToUpper() == "DONE")
                 {
-                    defaultCard.cardList[i].Line = Board.BoardLine.DONE;
+                    defaultCard.cardList[index].Line = Board.BoardLine.DONE;
                 }
                 else if (newLine.ToUpper() == "INPROGRESS")
                 {
-                    defaultCard.cardList[i].Line = Board.BoardLine.INPROGRESS;
+                    defaultCard.cardList[index].Line = Board.BoardLine.INPROGRESS;
                 }
-                else if(newLine.ToUpper() == "TODO")
+                else if (newLine.ToUpper() == "TODO")
                 {
-                    defaultCard.cardList[i].Line = Board.BoardLine.TODO;
+                    defaultCard.cardList[index].Line = Board.BoardLine.TODO;
                 }
+            }
+            else
+            {
+                Console.WriteLine("Invalid index entered.");
             }
 
         }
